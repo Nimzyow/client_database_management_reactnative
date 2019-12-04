@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  AppRegistry
-} from "react-native";
 
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
@@ -14,12 +7,17 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./components/pages/HomeScreen";
 import LoginScreen from "./components/pages/LoginScreen";
 import ClientsScreen from "./components/pages/ClientsScreen";
+import ViewClientsScreen from "./components/pages/ViewClientsScreen";
+
+//import global states
+import ClientState from "./Context/Client/ClientState";
 
 const MainNavigator = createStackNavigator(
   {
-    Home: { screen: HomeScreen },
+    Home: { screen: ClientsScreen },
     Login: { screen: LoginScreen },
-    Clients: { screen: ClientsScreen }
+    Clients: { screen: HomeScreen },
+    View: { screen: ViewClientsScreen }
   },
   {
     defaultNavigationOptions: {
@@ -31,14 +29,13 @@ const MainNavigator = createStackNavigator(
   }
 );
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+const AppContainer = createAppContainer(MainNavigator);
+const App = () => {
+  return (
+    <ClientState>
+      <AppContainer />
+    </ClientState>
+  );
+};
 
-const App = createAppContainer(MainNavigator);
 export default App;

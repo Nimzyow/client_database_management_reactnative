@@ -1,19 +1,12 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { View, Text, KeyboardAvoidingView, StyleSheet } from "react-native";
 
 import { Form, Input, Label, Button, Item } from "native-base";
 
 const HomeScreen = () => {
-  const navigationOptions = {
-    title: "Login",
-    header: null
-  };
-
   return (
     <KeyboardAvoidingView>
-      <View
-        style={{ display: "flex", justifyContent: "center", marginTop: 50 }}
-      >
+      <View style={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
         <Form>
           <Item floatingLabel>
             <Label>Email</Label>
