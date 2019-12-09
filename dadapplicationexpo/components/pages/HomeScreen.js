@@ -3,7 +3,7 @@ import { View, Text, KeyboardAvoidingView, StyleSheet } from "react-native";
 
 import { Form, Input, Label, Button, Item } from "native-base";
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   return (
     <KeyboardAvoidingView>
       <View style={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
@@ -29,6 +29,16 @@ const HomeScreen = () => {
           </Item>
           <Button style={styles.button} full rounded onPress={() => {}}>
             <Text style={styles.buttonText}>Sign In</Text>
+          </Button>
+          <Button
+            style={styles.button}
+            full
+            rounded
+            onPress={() => {
+              props.navigation.navigate("Clients");
+            }}
+          >
+            <Text style={styles.buttonText}>Just go to next screen</Text>
           </Button>
         </Form>
       </View>

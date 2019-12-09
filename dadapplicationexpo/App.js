@@ -14,9 +14,9 @@ import ClientState from "./Context/Client/ClientState";
 
 const MainNavigator = createStackNavigator(
   {
-    Home: { screen: ClientsScreen },
+    Home: { screen: HomeScreen },
     Login: { screen: LoginScreen },
-    Clients: { screen: HomeScreen },
+    Clients: { screen: ClientsScreen },
     View: { screen: ViewClientsScreen }
   },
   {

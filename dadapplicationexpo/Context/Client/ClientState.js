@@ -85,15 +85,27 @@ const ClientState = props => {
         postCode: "pineapple",
         projNumber: "1234235"
       }
-    ]
+    ],
+    filtered: null,
+    loading: false
   };
 
   const [state, dispatch] = useReducer(ClientReducer, initialState);
 
+  const filterClients = text => {
+    console.log(text);
+    dispatch({ type: Types.FILTER_CLIENT, payload: text });
+  };
+
+  const clearFilter = () => {};
+
   return (
     <ClientContext.Provider
       value={{
-        clients: state.clients
+        clients: state.clients,
+        filtered: state.filtered,
+        filterClients,
+        clearFilter
       }}
     >
       {props.children}
